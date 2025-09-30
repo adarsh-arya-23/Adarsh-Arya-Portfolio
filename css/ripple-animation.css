@@ -1,0 +1,90 @@
+/* Ripple Background Animation */
+.ripple-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    will-change: transform; /* Performance optimization */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(var(--primary-rgb), 0.1);
+    animation: ripple 20s infinite;
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.25);
+    will-change: transform, opacity; /* Performance optimization */
+}
+
+.small {
+    width: 300px;
+    height: 300px;
+}
+
+.medium {
+    width: 500px;
+    height: 500px;
+}
+
+.large {
+    width: 700px;
+    height: 700px;
+}
+
+.xlarge {
+    width: 900px;
+    height: 900px;
+}
+
+.circle:nth-child(1) {
+    left: 5%;
+    top: 15%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.circle:nth-child(2) {
+    left: 75%;
+    top: 25%;
+    animation-delay: 2s;
+    animation-duration: 25s;
+}
+
+.circle:nth-child(3) {
+    left: 25%;
+    top: 60%;
+    animation-delay: 4s;
+    animation-duration: 22s;
+}
+
+.circle:nth-child(4) {
+    left: 65%;
+    top: 75%;
+    animation-delay: 6s;
+    animation-duration: 28s;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8) translateY(0);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.1) translateY(-30px);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(0.8) translateY(0);
+        opacity: 0.2;
+    }
+}
+
+/* Ensure animation works in dark mode */
+[data-theme="dark"] .circle {
+    background: rgba(var(--primary-rgb), 0.18);
+    box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2);
+}

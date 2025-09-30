@@ -1,0 +1,122 @@
+/* Dark Mode Toggle Button Styles */
+
+/* Hide the default checkbox */
+#darkmode-toggle {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+/* Style for the list item containing the toggle */
+.nav-links li:last-child {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+/* Style for the toggle label */
+#darkmode-toggle + label {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    display: block;
+    background: var(--light-mint);
+    border-radius: 30px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Create the toggle circle */
+#darkmode-toggle + label:after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    background: linear-gradient(180deg, var(--mint), var(--blue-gray));
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* Position the sun and moon icons */
+#darkmode-toggle + label svg {
+    position: absolute;
+    width: 15px;
+    top: 7.5px;
+    z-index: 100;
+}
+
+/* Position and style the sun icon */
+#darkmode-toggle + label svg.sun {
+    left: 7.5px;
+    fill: var(--dark-blue);
+    transition: 0.3s;
+}
+
+/* Position and style the moon icon */
+#darkmode-toggle + label svg.moon {
+    left: 37.5px;
+    fill: var(--dark-blue);
+    transition: 0.3s;
+}
+
+/* Styles for when the toggle is checked */
+#darkmode-toggle:checked + label {
+    background: var(--dark-blue);
+}
+
+#darkmode-toggle:checked + label:after {
+    left: 57.5px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, var(--light-mint), var(--mint));
+}
+
+#darkmode-toggle:checked + label svg.sun {
+    fill: var(--light-mint);
+}
+
+#darkmode-toggle:checked + label svg.moon {
+    fill: var(--light-mint);
+}
+
+/* Active state for the toggle circle */
+#darkmode-toggle:active + label:after {
+    width: 35px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #darkmode-toggle + label {
+        width: 50px;
+        height: 25px;
+    }
+    
+    #darkmode-toggle + label:after {
+        width: 20px;
+        height: 20px;
+        top: 2.5px;
+    }
+    
+    #darkmode-toggle + label svg {
+        width: 12px;
+        top: 6.5px;
+    }
+    
+    #darkmode-toggle + label svg.sun {
+        left: 6.5px;
+    }
+    
+    #darkmode-toggle + label svg.moon {
+        left: 31.5px;
+    }
+    
+    #darkmode-toggle:checked + label:after {
+        left: 47.5px;
+    }
+}
